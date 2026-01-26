@@ -6,6 +6,7 @@ interface ProductCardProps {
     description: string;
     price: string;
     image?: string; // URL to image
+    className?: string;
 }
 
 export default function ProductCard({
@@ -13,11 +14,12 @@ export default function ProductCard({
     description,
     price,
     image,
+    className = "",
 }: ProductCardProps) {
     return (
-        <div className="group relative flex flex-col overflow-hidden rounded-2xl bg-background border border-border shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div className={`group relative flex flex-col overflow-hidden transition-all duration-500 ${className}`}>
             {/* Image Container */}
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
                 {image ? (
                     // Using standard img for simplicity in this demo, usually next/image
                     <img
@@ -26,7 +28,7 @@ export default function ProductCard({
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground">
+                    <div className="flex h-full w-full items-center justify-center text-label">
                         <span className="text-sm font-medium">Image Placeholder</span>
                     </div>
                 )}
@@ -35,7 +37,7 @@ export default function ProductCard({
             {/* Content */}
             <div className="flex flex-1 flex-col p-6">
                 <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold tracking-tight text-foreground transition-colors">
                         {title}
                     </h3>
                 </div>
@@ -46,8 +48,8 @@ export default function ProductCard({
 
                 <div className="mt-auto flex items-center justify-between gap-4">
                     <div className="flex flex-col">
-                        <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Price</span>
-                        <span className="text-2xl font-bold text-primary">{price}</span>
+                        <span className="text-xs text-label uppercase tracking-wider font-semibold">Price</span>
+                        <span className="text-2xl font-bold text-foreground">{price}</span>
                     </div>
 
                     {/* 

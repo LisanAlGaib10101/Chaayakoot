@@ -34,9 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--loud-bg)] h-screen w-screen overflow-hidden p-2 md:p-6 lg:p-8 flex items-center justify-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] h-screen w-screen overflow-hidden flex items-center justify-center p-4 md:p-12 lg:p-20`}
       >
-        <div className="bg-[var(--canvas-bg)] h-full w-full rounded-[2rem] overflow-y-auto shadow-2xl relative flex flex-col">
+        <div className="bg-[var(--canvas-bg)] w-full h-full rounded-[2.5rem] shadow-[0_40px_120px_-20px_rgba(0,0,0,0.25)] overflow-y-auto relative flex flex-col">
           <Navbar />
           {children}
           <Footer />

@@ -25,10 +25,10 @@ export default function WhatsAppButton({
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase hover:text-[var(--loud-bg)] transition-colors ${className}`}
+                className={`group inline-flex items-center gap-2 text-[10px] lg:text-xs font-bold tracking-[0.25em] uppercase text-label hover:text-[var(--primary)] transition-colors duration-500 ${className}`}
             >
                 {text}
-                <span className="block h-[1px] w-8 bg-current group-hover:w-12 transition-all" />
+                <span className="block h-[0.5px] w-4 bg-current opacity-30 group-hover:w-8 group-hover:opacity-100 transition-all duration-700 ease-in-out" />
             </Link>
         )
     }
@@ -40,9 +40,9 @@ export default function WhatsAppButton({
             rel="noopener noreferrer"
             className={`
         inline-flex items-center justify-center rounded-full 
-        border border-foreground/20 bg-transparent px-8 py-3 text-sm uppercase tracking-widest font-bold text-foreground
-        transition-all 
-        hover:bg-[var(--loud-bg)] hover:text-[var(--canvas-bg)] hover:border-transparent
+        border border-[var(--primary)]/20 bg-transparent px-8 py-3 text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold text-foreground
+        transition-all duration-500
+        hover:border-[var(--primary)] hover:text-[var(--primary)]
         ${className}
       `}
         >

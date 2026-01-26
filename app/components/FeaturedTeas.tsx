@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import FadeIn from "./FadeIn";
 
 export default function FeaturedTeas() {
     const products = [
@@ -23,36 +24,51 @@ export default function FeaturedTeas() {
     ];
 
     return (
-        <section className="py-24 px-6 lg:px-20 bg-[var(--canvas-bg)]">
-            <div className="flex flex-col gap-12">
-                <div className="flex flex-col lg:flex-row justify-between items-end border-b border-foreground/10 pb-8">
-                    <h2 className="text-6xl lg:text-9xl font-bold tracking-tighter text-foreground leading-[0.8]">
-                        Signature <br /> Blends
-                    </h2>
-                    <p className="text-lg text-muted-foreground w-full lg:w-1/3 mt-6 lg:mt-0">
-                        Explore our collection of hand-crafted teas, sourced from the finest gardens and blended for the perfect cup.
-                    </p>
-                </div>
+        <section className="py-16 lg:py-24 px-6 lg:px-20 bg-[var(--canvas-bg)]">
+            <div className="flex flex-col gap-24">
+                <FadeIn>
+                    <div className="flex flex-col items-center text-center gap-6">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-label">Selection</span>
+                        <h2 className="text-5xl lg:text-7xl font-sans font-black tracking-tighter text-foreground uppercase">
+                            Signature <span className="text-[var(--primary)]">Collection</span>
+                        </h2>
+                    </div>
+                </FadeIn>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {products.map((product, index) => (
-                        <div key={product.title} className={`group flex flex-col gap-4 ${index === 1 ? 'md:mt-12' : ''}`}>
-                            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-muted">
-                                <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <div className="flex justify-between items-center">
-                                    <h3 className="text-2xl font-bold tracking-tight">{product.title}</h3>
-                                    <span className="text-lg font-medium font-mono">{product.price}</span>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+                    {/* Hero Product - Left / Top */}
+                    <div className="lg:col-span-7 flex flex-col gap-8">
+                        <FadeIn>
+                            <div className="group cursor-pointer">
+                                <div className="relative aspect-[3/4] lg:aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
+                                    <img
+                                        src={products[0].image}
+                                        alt={products[0].title}
+                                        className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                                    />
                                 </div>
-                                <p className="text-muted-foreground line-clamp-2">{product.description}</p>
+                                <div className="mt-8 flex flex-col gap-4">
+                                    <div className="flex justify-between items-baseline border-b border-foreground/10 pb-4">
+                                        <h3 className="text-4xl lg:text-5xl font-sans font-medium tracking-tighter">{products[0].title}</h3>
+                                        <span className="text-xl lg:text-2xl font-medium">{products[0].price}</span>
+                                    </div>
+                                    <p className="text-lg text-muted-foreground leading-relaxed max-w-md">{products[0].description}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        </FadeIn>
+                    </div>
+
+                    {/* Secondary Products - Right / Column */}
+                    <div className="lg:col-span-5 flex flex-col gap-16 lg:pt-24">
+                        {products.slice(1).map((product, index) => (
+                            <FadeIn key={product.title} delay={0.2 + (index * 0.1)}>
+                                <ProductCard
+                                    {...product}
+                                    className="bg-transparent"
+                                />
+                            </FadeIn>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

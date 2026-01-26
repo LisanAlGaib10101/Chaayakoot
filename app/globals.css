@@ -2,25 +2,21 @@
 
 :root {
   /* Brand Colors */
-  --primary: #D60000;
-  --primary-foreground: #ffffff;
-
-  /* Redesign Palette */
-  --loud-bg: #8B1E1E;
-  /* Deep Rich Red */
-  --canvas-bg: #FAF9F6;
-  /* Off-White / Alabaster */
-
-  /* Neutrals - Warm Premium Palette */
-  --background: #FAF7F0;
-  /* Warm Cream */
-  --foreground: #2C1E14;
-  /* Deep Umber */
-  --muted: #F2ECE0;
-  /* Earthy Beige */
-  --muted-foreground: #6B5D54;
-  --border: #E5DED0;
-  /* Soft Clay */
+  /* Luxury Palette - Strict & Editorial */
+  --background: #1C120E;
+  /* Outer background */
+  --primary: #7A1F1D;
+  /* Brand accent */
+  --canvas-bg: #FAF7F2;
+  /* Main canvas background */
+  --foreground: #1A1A1A;
+  /* Headline text */
+  --muted-foreground: #4A4440;
+  /* Body text */
+  --border: rgba(0, 0, 0, 0.08);
+  /* Subtle dividers */
+  --label-foreground: rgba(26, 26, 26, 0.6);
+  /* Labels / metadata */
 }
 
 @theme inline {
@@ -31,23 +27,13 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  --color-label: var(--label-foreground);
 
   --font-sans: var(--font-geist-sans), "Inter", "system-ui", "sans-serif";
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1A120B;
-    /* Deep Roasted Cocoa */
-    --foreground: #F5F0E1;
-    /* Warm Bone */
-    --muted: #2A1F16;
-    /* Deep Earth */
-    --muted-foreground: #9C8E84;
-    --border: #3B2C21;
-  }
-}
+
 
 body {
   background: var(--background);
