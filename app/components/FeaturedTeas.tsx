@@ -24,7 +24,7 @@ export default function FeaturedTeas() {
     ];
 
     return (
-        <section className="py-16 lg:py-24 px-6 lg:px-20 bg-[var(--canvas-bg)]">
+        <section className="py-16 lg:py-24 px-6 lg:px-20 bg-[var(--canvas-bg)] rounded-[2.5rem]">
             <div className="flex flex-col gap-24">
                 <FadeIn>
                     <div className="flex flex-col items-center text-center gap-6">
